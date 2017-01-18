@@ -9,7 +9,7 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
-#elseif __APPLE__
+#elif __APPLE__
 
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
