@@ -24,13 +24,18 @@
 //GLFW (phew)
 #include <GLFW/glfw3.h>
 
+struct EngineState {
+    double time;
+    double deltaTime;
+};
+
 extern GLFWwindow *window;
 
 // User-called
 int createAndRunWindow();
 
 // User-defined
-void display(double time);
+void display(EngineState state);
 void initGL();
 
 
