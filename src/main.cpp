@@ -16,7 +16,7 @@ void initGL() {
   glClearColor(1.0, 0.87, 0.678, 0.0);
 }
 
-void display(double time) {
+void display(EngineState state) {
   // write your display function here
 
   glClear(GL_COLOR_BUFFER_BIT);
@@ -28,7 +28,7 @@ void display(double time) {
 
   for (double offset = -half_pi<double>(); offset < half_pi<double>(); offset += half_pi<double>() / 16) {
     glPushMatrix();
-    glRotated(degrees(time * offset * 2), 0, 0, -1);
+    glRotated(degrees(state.time * offset * 2), 0, 0, -1);
 
     glBegin(GL_QUADS);
     {

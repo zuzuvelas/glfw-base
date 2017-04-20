@@ -57,14 +57,18 @@ void initGLDefault() {
 }
 
 void mainLoop() {
+  double lastTime = glfwGetTime();
   while (!glfwWindowShouldClose(window)) {
     glfwPollEvents();
 
     glfwMakeContextCurrent(window);
     double time = glfwGetTime();
-    display(time);
+    double delta = time - lastTime;
+    EngineState state = {time, delta};
+    display(state);
     glfwSwapBuffers(window);
 
+    lastTime = time;
     if (time > nextFpsCheck) {
       nextFpsCheck = time + 1;
       cout << "FPS: " << frames << endl;
